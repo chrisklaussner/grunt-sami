@@ -30,27 +30,11 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     sami: {
-      default_options: {
+      test: {
         options: {
+          verbose: false
         },
-        files: {
-          'tmp/default_options': [
-            'test/fixtures/testing',
-            'test/fixtures/123'
-          ]
-        }
-      },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': [
-            'test/fixtures/testing',
-            'test/fixtures/123'
-          ]
-        }
+        src: 'test/fixtures/config.php'
       }
     },
 
