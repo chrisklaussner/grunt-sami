@@ -17,10 +17,13 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-sami');
 ```
 
-## The "sami" task
+## Sami
+A custom build of [this version of Sami](https://github.com/FriendsOfPHP/Sami/tree/0e70f3316920df58d903de0bf2222e49784c8317) is included in the plugin, so you don't need to install anything else to use it (except PHP).
 
-### Overview
-In your project's Gruntfile, add a section named `sami` to the data object passed into `grunt.initConfig()`.
+## The "sami" task
+*Run this task with the `grunt sami` command.*
+
+In your project's Gruntfile, add a section named `sami` to the data object passed into `grunt.initConfig()`. Task targets, files, and options may be specified according to the [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
 ```js
 grunt.initConfig({
@@ -28,59 +31,54 @@ grunt.initConfig({
     options: {
       // Task-specific options go here.
     },
-    your_target: {
+    target: {
       // Target-specific file lists and/or options go here.
-    },
-  },
+    }
+  }
 });
 ```
 
 ### Options
+The number of options you can use for the `sami` task is limited because the configuration is specified in a seperate Sami configuration file. See the example below and the [Sami documentation](https://github.com/FriendsOfPHP/Sami/blob/master/README.rst) for more details.
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+#### verbose
+Type: `Boolean`  
+Default value: `false`
 
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+Display the output of Sami.
 
 ### Usage Examples
-
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, a documentation is built using the configuration in *config.php* where the `$iterator` specifies which files will be scanned. The documentation is built for all PHP files in *app/controllers*.
 
 ```js
 grunt.initConfig({
   sami: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+    dist: {
+      options: {
+        verbose: true
+      },
+      src: 'config.php'
+    }
+  }
 });
 ```
+The content of *config.php*:
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+```php
+use Sami\Sami;
+use Symfony\Component\Finder\Finder;
 
-```js
-grunt.initConfig({
-  sami: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
+$iterator = Finder::create()
+  ->files()
+  ->name('*.php')
+  ->in('app/controllers');
+
+return new Sami($iterator);
 ```
+
+You can also build more than one documentation simultaneously by specifying an array of Sami configuration files for the `src` property.
+
+**Note:** There's another example in the *test* folder of this repository.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
