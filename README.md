@@ -1,4 +1,4 @@
-# grunt-sami [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# grunt-sami v0.1.0 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 > Create API documentations for PHP with Sami.
 
@@ -84,4 +84,4 @@ You can also build more than one documentation simultaneously by specifying an a
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+* v0.1.0 (2015-01-03) Initial release
