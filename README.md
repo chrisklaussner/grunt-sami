@@ -1,9 +1,9 @@
-# grunt-sami v0.1.0 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# grunt-sami v1.0.0 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 > Create API documentations for PHP with Sami.
 
 ## Getting Started
-This plugin requires Grunt `~0.4.5`
+This plugin requires Grunt `~1.0`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out
 the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains
@@ -105,3 +105,4 @@ code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 * v0.1.0 (2015-01-03) Initial release
+* v1.0.0 (2016-05-14) Upgrade to Grunt 1.0
