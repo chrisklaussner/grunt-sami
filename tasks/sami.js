@@ -3,7 +3,7 @@
  * https://github.com/christianklaussner/grunt-sami
  *
  * Copyright (c) 2015 Christian Klaussner
- * Licensed under the MIT license.
+ * Licensed under the MIT license
  */
 
 'use strict';
@@ -12,9 +12,10 @@ var exec = require('child_process').exec;
 var path = require('path');
 
 module.exports = function(grunt) {
-  var desc = 'Create API documentations for PHP with Sami.';
+  var desc = 'Create API documentations for PHP with Sami';
 
   grunt.registerMultiTask('sami', desc, function() {
+    var options, done, todo;
 
     function build(src, last) {
       var bin = path.resolve(__dirname, '../bin', 'sami.phar');
@@ -24,7 +25,7 @@ module.exports = function(grunt) {
       cmd += ' update -vv ';
       cmd += src;
 
-      // Execute sami.phar.
+      // Execute sami.phar
       exec(cmd, function(error, stdout, stderr) {
         if (error != null) {
           grunt.fail.fatal(error);
@@ -45,14 +46,14 @@ module.exports = function(grunt) {
       });
     }
 
-    // Initialize options with default values.
-    var options = this.options({
+    // Initialize options with default values
+    options = this.options({
       verbose: false
     });
 
-    // Build one documentation for each file (src) entry.
-    var done = this.async();
-    var todo = this.files.length;
+    // Build one documentation for each file (src) entry
+    done = this.async();
+    todo = this.files.length;
 
     if (todo === 0) {
       grunt.fail.warn('No Sami configurations.');
@@ -60,7 +61,7 @@ module.exports = function(grunt) {
 
     this.files.forEach(function(file) {
 
-      // Ignore the destination because it is specified in the Sami config.
+      // Ignore destination because it is specified in the Sami config
       file.src.forEach(function(src) {
         build(src, --todo === 0);
       });
