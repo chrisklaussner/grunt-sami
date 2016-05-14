@@ -2,7 +2,7 @@
  * grunt-sami
  * https://github.com/christianklaussner/grunt-sami
  *
- * Copyright (c) 2015 Christian Klaussner
+ * Copyright (c) 2016 Christian Klaussner
  * Licensed under the MIT license
  */
 
