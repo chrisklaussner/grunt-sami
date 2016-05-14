@@ -24,7 +24,7 @@ grunt.loadNpmTasks('grunt-sami');
 
 ## Sami
 A custom build of
-[this version of Sami](https://github.com/FriendsOfPHP/Sami/tree/0e70f3316920df58d903de0bf2222e49784c8317)
+[this version of Sami](https://github.com/FriendsOfPHP/Sami/tree/0d63f25ad740bffa3dde5278d4856578b4324ca9)
 is included in the plugin, so you don't need to install anything else to use it
 (except PHP).
 
